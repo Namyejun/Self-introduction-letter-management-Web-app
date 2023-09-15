@@ -56,7 +56,7 @@ public class Announcement {
 	private Timestamp endDate;
 	
 	@Column(nullable = true)
-	private Timestamp submitDate;
+	private boolean submit;
 	
 	@Enumerated(EnumType.STRING)
 	private AnnouncementResult result;
