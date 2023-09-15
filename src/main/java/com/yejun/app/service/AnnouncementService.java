@@ -47,4 +47,25 @@ public class AnnouncementService {
 	public List<Announcement> getUnterminatedAnnouncementList() {
 		return announcementRepository.findByEndDateAfter(new Timestamp(System.currentTimeMillis()));
 	}
+	
+	@Transactional(readOnly = true)
+	public List<Announcement> getAnnouncementList() {
+		return announcementRepository.findAllOrderById();
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Announcement> getAnnouncementListByCompanyName(String companyName) {
+		return announcementRepository.findByCompanyName(companyName);
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Announcement> getAnnouncementListByAnnouncementName(String announcementName) {
+		return announcementRepository.findByAnnouncementName(announcementName);
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Announcement> getAnnouncementListByJob(String job) {
+		return announcementRepository.findByJob(job);
+	}
+	
 }
