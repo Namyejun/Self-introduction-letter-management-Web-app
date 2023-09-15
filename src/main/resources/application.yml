@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/app/
+      suffix: .jsp
+      
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/spring
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: '0000'
+  
+  jpa:
+    open-in-view: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    properties:
+      hibernate:
+        "[format_sql]": true
