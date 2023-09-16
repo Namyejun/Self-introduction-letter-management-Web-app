@@ -27,14 +27,15 @@ public class AnnouncementService {
 		Announcement findAnnouncement = announcementRepository.findById(announcement.getId()).get();
 		findAnnouncement.setAnnouncementName(announcement.getAnnouncementName());
 		findAnnouncement.setCompanyName(announcement.getCompanyName());
+		findAnnouncement.setJob(announcement.getJob());
 		findAnnouncement.setStartDate(announcement.getStartDate());
 		findAnnouncement.setEndDate(announcement.getEndDate());
 	}
 	
 	@Transactional
-	public void updateSubmit(int id, boolean value) {
+	public void updateSubmit(int id) {
 		Announcement findAnnouncement = announcementRepository.findById(id).get();
-		findAnnouncement.setSubmit(value);
+		findAnnouncement.setSubmit(!findAnnouncement.getSubmit());
 	}
 	
 	@Transactional

@@ -3,6 +3,8 @@ package com.yejun.app.domain;
 import java.sql.Timestamp;
 import java.util.List;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,13 +42,13 @@ public class Announcement {
 	@OrderBy("questionNum asc")
 	private List<Question> questionList;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = false, length = 60)
 	private String companyName;
 	
 	@Column(nullable = false, length = 100)
 	private String announcementName;
 	
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 40)
 	private String job;
 	
 	@Column(nullable = true)
@@ -55,8 +57,8 @@ public class Announcement {
 	@Column(nullable = false)
 	private Timestamp endDate;
 	
-	@Column(nullable = true)
-	private boolean submit;
+	@Column(nullable = false, columnDefinition = "bool default false")
+	private Boolean submit;
 	
 	@Enumerated(EnumType.STRING)
 	private AnnouncementResult result;

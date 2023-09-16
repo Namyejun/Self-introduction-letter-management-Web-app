@@ -49,7 +49,7 @@ public class UserController {
 		}
 	}
 	
-	@PostMapping("/insertUser")
+	@PostMapping("/insert")
 	public @ResponseBody ResponseDTO<?> insertUser(@Valid @RequestBody UserDTO userdto, BindingResult bindingResult) {
 		User user = modelMapper.map(userdto, User.class);
 		User findUser = userService.getUser(user.getUserId());
@@ -62,7 +62,7 @@ public class UserController {
 	}
 	
 	// 유저 업데이트 페이지에 id를 숨겨 놔야 할 거 같네.
-	@PutMapping("/updateUser")
+	@PutMapping("/update")
 	public @ResponseBody ResponseDTO<?> updateUser(@Valid @RequestBody UserDTO userdto, BindingResult bindingResult, HttpSession session) {
 		User principal = (User) session.getAttribute("principal");
 		User user = modelMapper.map(userdto, User.class);
