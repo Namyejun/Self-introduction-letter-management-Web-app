@@ -28,8 +28,6 @@ public class Question {
 	@JoinColumn(name = "announcementId")
 	private Announcement announcement;
 	
-	private int questionNum;
-
 	@Column(nullable = false, length = 100)
 	private String question;
 	
