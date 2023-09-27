@@ -46,12 +46,12 @@ public class AnnouncementService {
 	
 	@Transactional(readOnly = true)
 	public List<Announcement> getUnterminatedAnnouncementList() {
-		return announcementRepository.findByEndDateAfter(new Timestamp(System.currentTimeMillis()));
+		return announcementRepository.findByEndDateAfterOrderByEndDateAsc(new Timestamp(System.currentTimeMillis()));
 	}
 	
 	@Transactional(readOnly = true)
 	public List<Announcement> getAnnouncementList() {
-		return announcementRepository.findAllOrderById();
+		return announcementRepository.findAllOrderByIdDesc();
 	}
 	
 	@Transactional(readOnly = true)

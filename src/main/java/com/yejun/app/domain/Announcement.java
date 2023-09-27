@@ -35,7 +35,7 @@ public class Announcement {
 	private int id;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "userid")
+	@JoinColumn(name = "userId")
 	private User user;
 	
 	@OneToMany(mappedBy = "announcement", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)

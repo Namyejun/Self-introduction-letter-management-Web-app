@@ -37,15 +37,15 @@
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<c:if test="${principal == null }">
 					<ul class="navbar-nav me-auto">
-						<li class="nav-item"><a class="nav-link" href="/auth/login">로그인</a></li>
-						<li class="nav-item"><a class="nav-link" href="/auth/insertUser">회원가입</a></li>
+						<li class="nav-item"><a class="nav-link" href="/view/login">로그인</a></li>
+						<li class="nav-item"><a class="nav-link" href="/view/insertUser">회원가입</a></li>
 					</ul>
 				</c:if>
 				<c:if test="${principal != null }">
 					<ul class="navbar-nav me-auto">
-						<li class="nav-item"><a class="nav-link" href="/user/updateUser">회원 상세</a></li>
-						<li class="nav-item"><a class="nav-link" href="/post/insertPost">포스트 등록</a></li>
-						<li class="nav-item"><a class="nav-link" href="/auth/logout">로그아웃</a></li>
+						<li class="nav-item"><a class="nav-link" href="/view/updateUser">회원 상세</a></li>
+						<li class="nav-item"><a class="nav-link" href="/view/insertPost">포스트 등록</a></li>
+						<li class="nav-item"><a class="nav-link" href="/user/logout">로그아웃</a></li>
 					</ul>
 				</c:if>
 			</div>

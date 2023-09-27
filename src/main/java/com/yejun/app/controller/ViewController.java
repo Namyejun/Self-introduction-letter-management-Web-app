@@ -8,24 +8,23 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 public class ViewController {
 	
-	@GetMapping("/hi")
-	public String hi() {
-		return "hi"; 
-	}
-	
-	@GetMapping("/hello")
-	public String hello() {
-		return "hello"; 
-	}
-	
 	@GetMapping({"", "/"})
 	public String indexView(HttpServletRequest request) {
-		System.out.println(request.getRequestURL());
 		return "index";
 	}
 	
 	@GetMapping("/view/login")
 	public String loginView() {
 		return "/system/login";
+	}
+	
+	@GetMapping("/view/insertUser")
+	public String insertUserView() {
+		return "/system/insertUser";
+	}
+	
+	@GetMapping("/view/updateUser")
+	public String updateUserView() {
+		return "/system/updateUser";
 	}
 }
