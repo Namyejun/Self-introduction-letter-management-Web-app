@@ -9,7 +9,7 @@ import com.yejun.app.domain.Announcement;
 
 public interface AnnouncementRepository extends JpaRepository<Announcement, Integer> {
 	List<Announcement> findByEndDateAfterOrderByEndDateAsc(Timestamp date);
-	List<Announcement> findAllOrderByIdDesc();
+	List<Announcement> findAllByOrderById();  // AllBy 써줘야함
 	List<Announcement> findByCompanyName(String companyName);
 	List<Announcement> findByAnnouncementName(String announcementName);
 	List<Announcement> findByJob(String job);

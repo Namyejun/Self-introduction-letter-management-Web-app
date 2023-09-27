@@ -16,7 +16,7 @@ public class QuestionDTO {
 	
 	@NotNull(message = "문항이 전달되지 않았습니다.")
 	@NotBlank(message = "문항은 필수 입력 항목입니다.")
-	private String question;
+	private String title;
 	
 	@NotNull(message = "최대 글자수가 전달되지 않았습니다.")
 	@NotBlank(message = "최대 글자수는 필수 입력 항목입니다.")

@@ -29,7 +29,7 @@ public class Question {
 	private Announcement announcement;
 	
 	@Column(nullable = false, length = 100)
-	private String question;
+	private String title;
 	
 	private int maxLength;
 	

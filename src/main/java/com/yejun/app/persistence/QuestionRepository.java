@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.yejun.app.domain.Question;
 
 public interface QuestionRepository extends JpaRepository<Question, Integer> {
-	List<Question> findByQuestionOrAnswerLike(String word);
+	List<Question> findByTitleOrAnswerContaining(String keyword1, String keyword2); // keyword 2개여야함 or 붙으면
 }
