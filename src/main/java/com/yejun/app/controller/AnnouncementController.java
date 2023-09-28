@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yejun.app.domain.Announcement;
+import com.yejun.app.domain.AnnouncementResult;
 import com.yejun.app.domain.User;
 import com.yejun.app.dto.AnnouncementDTO;
 import com.yejun.app.dto.ResponseDTO;
@@ -34,7 +35,7 @@ public class AnnouncementController {
 	public @ResponseBody ResponseDTO<?> insertAnnouncement(@Valid @RequestBody AnnouncementDTO announcementDTO, BindingResult bindingResult, HttpSession session) {
 		Announcement announcement = modelMapper.map(announcementDTO, Announcement.class);
 		announcement.setSubmit(false);
-		
+		announcement.setResult(AnnouncementResult.서류탈락);
 		User principal = (User) session.getAttribute("principal");
 		announcement.setUser(principal);
 		announcementService.insertAnnouncement(announcement);

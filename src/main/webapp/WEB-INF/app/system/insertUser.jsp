@@ -21,7 +21,7 @@
 					<label for="email">이메일:</label>
 					<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
 				</div>
-				<button id="btn-login" class="btn btn-secondary"><spring:message code="user.login.form.login_btn"/></button>
+				<button id="btn-insertUser" class="btn btn-secondary">회원가입</button>
 			</form>
 		</div>
 <%@ include file="../layout/footer.jsp" %>
