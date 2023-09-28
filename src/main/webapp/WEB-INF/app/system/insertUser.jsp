@@ -4,7 +4,7 @@
 
 	<br>
 		<div class="container mt-3">
-			<form action="/user/insertUser" method="post">
+			<form action="/user/insert" method="post">
 				<div class="mb-3 mt-3">
 					<label for="name">이름:</label>
 					<input type="text" class="form-control" id="name" placeholder="Enter name" name="name">

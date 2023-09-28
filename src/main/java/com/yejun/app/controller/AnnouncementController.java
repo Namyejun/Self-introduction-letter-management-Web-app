@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yejun.app.domain.Announcement;
+import com.yejun.app.domain.User;
 import com.yejun.app.dto.AnnouncementDTO;
 import com.yejun.app.dto.ResponseDTO;
 import com.yejun.app.service.AnnouncementService;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
@@ -29,9 +31,12 @@ public class AnnouncementController {
 	private ModelMapper modelMapper;
 	
 	@PostMapping("/insert")
-	public @ResponseBody ResponseDTO<?> insertAnnouncement(@Valid @RequestBody AnnouncementDTO announcementDTO, BindingResult bindingResult) {
+	public @ResponseBody ResponseDTO<?> insertAnnouncement(@Valid @RequestBody AnnouncementDTO announcementDTO, BindingResult bindingResult, HttpSession session) {
 		Announcement announcement = modelMapper.map(announcementDTO, Announcement.class);
 		announcement.setSubmit(false);
+		
+		User principal = (User) session.getAttribute("principal");
+		announcement.setUser(principal);
 		announcementService.insertAnnouncement(announcement);
 		return new ResponseDTO<>(HttpStatus.OK.value(), announcement.getAnnouncementName() + "공고를 등록했습니다.");
 	}
