@@ -27,4 +27,14 @@ public class ViewController {
 	public String updateUserView() {
 		return "/system/updateUser";
 	}
+	
+	@GetMapping("/view/insertAnnouncement")
+	public String insertAnnouncementView() {
+		return "/announcement/insertAnnouncement";
+	}
+	
+	@GetMapping("/view/insertQuestion")
+	public String insertQuestionView() {
+		return "/question/insertQuestion";
+	}
 }

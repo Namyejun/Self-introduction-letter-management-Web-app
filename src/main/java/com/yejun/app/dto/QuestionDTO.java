@@ -1,7 +1,5 @@
 package com.yejun.app.dto;
 
-import com.yejun.app.domain.Announcement;
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -16,7 +14,7 @@ public class QuestionDTO {
 	
 	@NotNull(message = "문항이 전달되지 않았습니다.")
 	@NotBlank(message = "문항은 필수 입력 항목입니다.")
-	private String title;
+	private String question;
 	
 	@NotNull(message = "최대 글자수가 전달되지 않았습니다.")
 	@NotBlank(message = "최대 글자수는 필수 입력 항목입니다.")

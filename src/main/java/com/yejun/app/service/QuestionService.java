@@ -23,7 +23,7 @@ public class QuestionService {
 	@Transactional
 	public void updateQuestion(Question question) {
 		Question findQuestion = questionRepository.findById(question.getId()).get();
-		findQuestion.setTitle(question.getTitle());
+		findQuestion.setQuestion(question.getQuestion());
 	}
 	
 	@Transactional
@@ -34,7 +34,7 @@ public class QuestionService {
 	
 	@Transactional(readOnly = true)
 	public List<Question> getQuestionListByKeyword(String keyword) {
-		List<Question> questionList = questionRepository.findByTitleOrAnswerContaining(keyword, keyword);
+		List<Question> questionList = questionRepository.findByQuestionOrAnswerContaining(keyword, keyword);
 		return questionList;
 	}
 }
