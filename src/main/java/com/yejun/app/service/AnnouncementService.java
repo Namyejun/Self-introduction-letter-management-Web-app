@@ -71,4 +71,9 @@ public class AnnouncementService {
 		return announcementRepository.findByJob(job);
 	}
 	
+	@Transactional(readOnly = true)
+	public Announcement getAnnouncement(int id) {
+		return announcementRepository.findById(id).get();
+	}
+	
 }

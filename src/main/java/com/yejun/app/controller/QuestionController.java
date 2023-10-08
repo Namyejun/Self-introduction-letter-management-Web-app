@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,10 +34,10 @@ public class QuestionController {
 	@Autowired
 	private QuestionService questionService;
 	
-	@PostMapping("/insert")
-	public @ResponseBody ResponseDTO<?> insertQuestion(@Valid @RequestBody QuestionDTO questionDTO, BindingResult bindingResult) {
+	@PostMapping("/insert/{announcementId}")
+	public @ResponseBody ResponseDTO<?> insertQuestion(@Valid @RequestBody QuestionDTO questionDTO, BindingResult bindingResult, @PathVariable int announcementId) {
 		Question question = modelMapper.map(questionDTO, Question.class);
-		questionService.insertQuestion(question);
+		questionService.insertQuestion(announcementId, question);
 		return new ResponseDTO<>(HttpStatus.OK.value(), "문항 입력 완료");
 	}
 	

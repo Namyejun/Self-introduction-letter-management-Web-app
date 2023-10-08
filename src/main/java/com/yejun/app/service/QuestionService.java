@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yejun.app.domain.Question;
+import com.yejun.app.persistence.AnnouncementRepository;
 import com.yejun.app.persistence.QuestionRepository;
 
 @Service
@@ -15,8 +16,13 @@ public class QuestionService {
 	@Autowired
 	private QuestionRepository questionRepository;
 	
+	@Autowired
+	private AnnouncementRepository announcementRepository;
+	
+	
 	@Transactional
-	public void insertQuestion(Question question) {
+	public void insertQuestion(int id, Question question) {
+		question.setAnnouncement(announcementRepository.findById(id).get());
 		questionRepository.save(question);
 	}
 	
