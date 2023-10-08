@@ -3,6 +3,7 @@
 <%@ include file="../layout/header.jsp" %>
 	<br>
 		<div class="container mt-3">
+		
 			<form action="/announcement/insert" method="post">
 				<div class="mb-3 mt-3">
 					<label for="question">문항:</label>
