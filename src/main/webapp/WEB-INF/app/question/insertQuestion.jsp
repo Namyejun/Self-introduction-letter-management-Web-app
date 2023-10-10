@@ -5,7 +5,7 @@
 	<br>
 		<div class="container mt-3">
 			<form action="/announcement/insert" method="post">
-				<input type="hidden" id="postId" value="${announcement.id }">
+				<input type="hidden" id="announcementId" value="${announcement.id }">
 				<div class="mb-3 mt-3">
 					<label for="question">문항:</label>
 					<input type="text" class="form-control" id="question" placeholder="Enter question" name="question">
