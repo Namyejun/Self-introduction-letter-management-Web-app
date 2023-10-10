@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class ResponseDTO<T> {
 	private int status;
 	
-	private T dataT;
+	private T data;
 }

@@ -23,7 +23,6 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping(value = "/user")
 public class UserController {
 	@Autowired
 	private UserService userService;
@@ -34,7 +33,7 @@ public class UserController {
 //	@Autowired
 //	private PasswordEncoder passwordEncoder;
 	
-	@GetMapping("/login")
+	@GetMapping("/user/login")
 	public String login(@RequestBody User user, HttpSession session) {
 		User findUser = userService.getUser(user.getUserId());
 		if (findUser.getUserId() == null) {
@@ -49,7 +48,7 @@ public class UserController {
 		}
 	}
 	
-	@PostMapping("/insert")
+	@PostMapping("/user/insert")
 	public @ResponseBody ResponseDTO<?> insertUser(@Valid @RequestBody UserDTO userdto, BindingResult bindingResult) {
 		User user = modelMapper.map(userdto, User.class);
 		User findUser = userService.getUser(user.getUserId());
@@ -62,7 +61,7 @@ public class UserController {
 	}
 	
 	// 유저 업데이트 페이지에 id를 숨겨 놔야 할 거 같네.
-	@PutMapping("/update")
+	@PutMapping("/user/update")
 	public @ResponseBody ResponseDTO<?> updateUser(@Valid @RequestBody UserDTO userdto, BindingResult bindingResult, HttpSession session) {
 		User principal = (User) session.getAttribute("principal");
 		User user = modelMapper.map(userdto, User.class);
