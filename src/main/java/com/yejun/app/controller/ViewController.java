@@ -46,4 +46,10 @@ public class ViewController {
 		model.addAttribute("announcement", announcementService.getAnnouncement(id));
 		return "/question/insertQuestion";
 	}
+	
+	@GetMapping("/view/updateAnswer/{id}")
+	public String updateAnswerView(@PathVariable int id, Model model) {
+		model.addAttribute("announcement", announcementService.getAnnouncement(id));
+		return "/question/updateAnswer";
+	}
 }
