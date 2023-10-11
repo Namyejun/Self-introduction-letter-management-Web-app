@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yejun.app.domain.OAuthType;
@@ -33,14 +34,14 @@ public class UserController {
 //	@Autowired
 //	private PasswordEncoder passwordEncoder;
 	
-	@GetMapping("/user/login")
-	public String login(@RequestBody User user, HttpSession session) {
-		User findUser = userService.getUser(user.getUserId());
+	@PostMapping("/user/login")
+	public String login(@RequestParam String userId, @RequestParam String pw, HttpSession session) { // 이런저런 이슈로 변경
+		User findUser = userService.getUser(userId);
 		if (findUser.getUserId() == null) {
 			return "login";
 		} else {
-			if (user.getPw().equals(findUser.getPw())) {
-				session.setAttribute("principal", user);
+			if (pw.equals(findUser.getPw())) {
+				session.setAttribute("principal", findUser);
 				return "redirect:/";
 			} else {
 				return "login";
