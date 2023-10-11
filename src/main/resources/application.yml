@@ -8,7 +8,6 @@ server:
       
 spring:
   mvc:
-    ignore-default-model-on-redirect: true
     view:
       prefix: /WEB-INF/app/
       suffix: .jsp

@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="/webjars/bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
 <script src="/webjars/bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
-<script src="/webjars/jquery/3.7.0/dist/jquery.min.js"></script>
+<script src="/webjars/jquery/3.6.0/dist/jquery.min.js"></script>
 
 </head>
 <body>
