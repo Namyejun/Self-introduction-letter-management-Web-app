@@ -10,7 +10,6 @@ let userObject = {
 		});
 	},
 	insertUser: function() {
-		alert("회원가입 요청됨");
 		// 사용자가 입력한 값 추출
 		let user = {
 			name : $("#name").val(),
@@ -18,11 +17,7 @@ let userObject = {
 			pw : $("#pw").val(),
 			email : $("#email").val()
 		}
-		
-		console.log(user.name);
-		console.log(user.userId);
-		console.log(user.pw);
-		console.log(user.email);
+
 		// Ajax를 이용한 비동기 호출
 		// done() 함수 : 요청 처리에 성공했을 때 실행될 코드
 		// fail() 함수 : 요청 처리에 실패했을 때 실행될 코드
@@ -39,13 +34,11 @@ let userObject = {
 			if(status == 200) {
 				let message = response["data"];
 				alert(message);
-				document.location="http//localost:8080/";
+				window.location.assign("/");
 			} else {
 				let errors = response["data"];
 				alert(errors);
 			}
-		}).fail(function(error) {
-			alert("에러 발생 : " + error);
 		})
 	}
 }
