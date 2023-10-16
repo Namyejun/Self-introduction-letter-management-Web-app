@@ -21,8 +21,8 @@
 					<label for="email">이메일:</label>
 					<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
 				</div>
-				<button id="btn-insertUser" class="btn btn-secondary">회원가입</button>
 			</form>
+			<button id="btn-insertUser" class="btn btn-secondary">회원가입</button> <!-- 이거 form 태그 바깥으로 꺼내줘야 ajax로 리디렉트 제대로 됨. 이유는 솔직히 잘모름 @RequestBody 그런거랑 관련된거같은데 -->
 		</div>
 		<script src="/js/user.js"></script>
 <%@ include file="../layout/footer.jsp" %>

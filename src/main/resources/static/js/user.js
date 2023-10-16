@@ -27,18 +27,23 @@ let userObject = {
 			dataType: 'json',
 			// HTTP의 Body에 설정되는 데이터 마임 타입
 			contentType: "application/json; charset=utf-8",
-			data: JSON.stringify(user) // user 객체를 JSON 형식으로 변환
-			// 응답으로 들어온 JSON 데이터를 response로 받는다.
-		}).done(function(response) {
-			let status = response["status"];
-			if(status == 200) {
-				let message = response["data"];
-				alert(message);
-				window.location.assign("/");
-			} else {
-				let errors = response["data"];
-				alert(errors);
-			}
+			data: JSON.stringify(user), // user 객체를 JSON 형식으로 변환
+			success: function(response){
+				let status = response['status'];
+				if (status == 200) {
+					window.location = ('/');
+				} else {
+					let warn = "";
+					let errors = response["data"];
+					if (errors.username != null) warn = warn + errors.username + "\n";
+					if (errors.password != null) warn = warn + errors.password + "\n";
+					if (errors.email != null) warn = warn + errors.email;
+					alert(warn);
+				}
+			},
+			fail: function(error){
+				alert(error)
+			},
 		})
 	}
 }
