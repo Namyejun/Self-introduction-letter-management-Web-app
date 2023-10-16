@@ -34,22 +34,27 @@ public class UserController {
 //	@Autowired
 //	private PasswordEncoder passwordEncoder;
 	
+	@GetMapping("/view/insertUser")
+	public String insertUserView() {
+		return "/user/insertUser";
+	}
+	
 	@PostMapping("/user/login")
-	public String login(@RequestParam String userId, @RequestParam String pw, HttpSession session) { // 이런저런 이슈로 변경
-		User findUser = userService.getUser(userId);
+	public String login(User user, HttpSession session) { // Form 태그로 보내면 @RequestBody를 안써도 된대
+		User findUser = userService.getUser(user.getUserId());
 		if (findUser.getUserId() == null) {
 			return "login";
 		} else {
-			if (pw.equals(findUser.getPw())) {
+			if (user.getPw().equals(findUser.getPw())) {
 				session.setAttribute("principal", findUser);
 				return "redirect:/";
 			} else {
-				return "login";
+				return "/system/login";
 			}
 		}
 	}
 	
-	@PostMapping("/user/insert")
+	@PostMapping("/user")
 	public @ResponseBody ResponseDTO<?> insertUser(@Valid @RequestBody UserDTO userdto, BindingResult bindingResult) {
 		User user = modelMapper.map(userdto, User.class);
 		User findUser = userService.getUser(user.getUserId());

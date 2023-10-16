@@ -23,7 +23,7 @@ let userObject = {
 		// fail() 함수 : 요청 처리에 실패했을 때 실행될 코드
 		$.ajax({
 			type: "POST", // 요청 방식
-			url: "/user/insert", // 요청 경로
+			url: "/user", // 요청 경로
 			dataType: 'json',
 			// HTTP의 Body에 설정되는 데이터 마임 타입
 			contentType: "application/json; charset=utf-8",

@@ -26,11 +26,6 @@ public class ViewController {
 		return "/system/login";
 	}
 	
-	@GetMapping("/view/insertUser")
-	public String insertUserView() {
-		return "/system/insertUser";
-	}
-	
 	@GetMapping("/view/updateUser")
 	public String updateUserView() {
 		return "/system/updateUser";
