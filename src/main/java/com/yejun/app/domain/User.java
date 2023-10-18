@@ -1,16 +1,21 @@
 package com.yejun.app.domain;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.web.PageableDefault;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -45,4 +50,8 @@ public class User {
 	
 	@Enumerated(EnumType.STRING)
 	private OAuthType oauth;
+	
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	@OrderBy("endDate desc")
+	private List<Announcement> announcementList;
 }

@@ -4,12 +4,15 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yejun.app.domain.Announcement;
 import com.yejun.app.domain.AnnouncementResult;
+import com.yejun.app.domain.User;
 import com.yejun.app.persistence.AnnouncementRepository;
 
 @Service
@@ -45,30 +48,35 @@ public class AnnouncementService {
 		findAnnouncement.setResult(result);
 	}
 	
-	@Transactional(readOnly = true)
-	public List<Announcement> getUnterminatedAnnouncementList() {
-		return announcementRepository.findByEndDateAfterOrderByEndDateAsc(new Timestamp(System.currentTimeMillis()));
-	}
+//	@Transactional(readOnly = true)
+//	public List<Announcement> getUnterminatedAnnouncementList() {
+//		return announcementRepository.findByEndDateAfterOrderByEndDateAsc(new Timestamp(System.currentTimeMillis()));
+//	}
+//	
+//	@Transactional(readOnly = true)
+//	public List<Announcement> getAnnouncementListByUserId() {
+//		return announcementRepository.findAllByOrderById();
+////		return announcementRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+//	}
+//	
+//	@Transactional(readOnly = true)
+//	public List<Announcement> getAnnouncementListByCompanyName(String companyName) {
+//		return announcementRepository.findByCompanyName(companyName);
+//	}
+//	
+//	@Transactional(readOnly = true)
+//	public List<Announcement> getAnnouncementListByAnnouncementName(String announcementName) {
+//		return announcementRepository.findByAnnouncementName(announcementName);
+//	}
+//	
+//	@Transactional(readOnly = true)
+//	public List<Announcement> getAnnouncementListByJob(String job) {
+//		return announcementRepository.findByJob(job);
+//	}
 	
 	@Transactional(readOnly = true)
-	public List<Announcement> getAnnouncementList() {
-		return announcementRepository.findAllByOrderById();
-//		return announcementRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
-	}
-	
-	@Transactional(readOnly = true)
-	public List<Announcement> getAnnouncementListByCompanyName(String companyName) {
-		return announcementRepository.findByCompanyName(companyName);
-	}
-	
-	@Transactional(readOnly = true)
-	public List<Announcement> getAnnouncementListByAnnouncementName(String announcementName) {
-		return announcementRepository.findByAnnouncementName(announcementName);
-	}
-	
-	@Transactional(readOnly = true)
-	public List<Announcement> getAnnouncementListByJob(String job) {
-		return announcementRepository.findByJob(job);
+	public Page<Announcement> getAnnouncementByUserOrderByEndDate(User user, Pageable pageable) {
+		return announcementRepository.findByUserOrderByEndDateDesc(user, pageable);
 	}
 	
 	@Transactional(readOnly = true)

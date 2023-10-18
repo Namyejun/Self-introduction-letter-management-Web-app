@@ -34,11 +34,6 @@ public class UserController {
 //	@Autowired
 //	private PasswordEncoder passwordEncoder;
 	
-	@GetMapping("/view/insertUser")
-	public String insertUserView() {
-		return "/user/insertUser";
-	}
-	
 	@PostMapping("/user/login")
 	public String login(User user, HttpSession session) { // Form 태그로 보내면 @RequestBody를 안써도 된대
 		User findUser = userService.getUser(user.getUserId());
