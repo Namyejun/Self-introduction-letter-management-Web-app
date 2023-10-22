@@ -1,5 +1,6 @@
 package com.yejun.app.dto;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 import jakarta.validation.constraints.NotBlank;
@@ -31,7 +32,9 @@ public class AnnouncementDTO {
 	@Size(min = 1, max = 20, message = "직무는 한 글자 이상 10자 미만으로 입력하세요.")
 	private String job;
 	
-	@NotNull(message = "종료일이 전달되지 않았습니다.")
-	@NotBlank(message = "종료일은 필수 입력 항목입니다.")
-	private Timestamp endDate;
+// Timestamp에 대한 valid 기능은 모르겠대. 알아보고 확인할 것
+//	@NotNull(message = "종료일이 전달되지 않았습니다.")
+//	@NotBlank(message = "종료일은 필수 입력 항목입니다.")
+	private Date startDate;
+	private Date endDate;
 }

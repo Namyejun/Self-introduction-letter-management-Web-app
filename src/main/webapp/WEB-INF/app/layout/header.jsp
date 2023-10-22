@@ -32,7 +32,7 @@
 				<c:if test="${principal != null }">
 					<ul class="navbar-nav me-auto">
 						<li class="nav-item"><a class="nav-link" href="/view/updateUser">회원 상세</a></li>
-						<li class="nav-item"><a class="nav-link" href="/view/insertPost">공고 등록</a></li>
+						<li class="nav-item"><a class="nav-link" href="/view/insertAnnouncement">공고 등록</a></li>
 						<li class="nav-item"><a class="nav-link" href="/user/logout">로그아웃</a></li>
 					</ul>
 				</c:if>

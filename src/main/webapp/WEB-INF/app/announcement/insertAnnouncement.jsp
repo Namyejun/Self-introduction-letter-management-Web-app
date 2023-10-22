@@ -4,7 +4,7 @@
 
 	<br>
 		<div class="container mt-3">
-			<form action="/announcement/insert" method="post">
+			<form>
 				<div class="mb-3 mt-3">
 					<label for="companyName">회사명:</label>
 					<input type="text" class="form-control" id="companyName" placeholder="Enter companyName" name="companyName">
@@ -25,7 +25,8 @@
 					<label for="endDate">종료일:</label>
 					<input type="date" class="form-control" id="endDate" name="endDate">
 				</div>
-				<button id="btn-insertAnnouncement" class="btn btn-secondary">등록</button>
 			</form>
+			<button id="btn-insertAnnouncement" class="btn btn-secondary">등록</button>
 		</div>
+	<script src="/js/announcement.js"></script>
 <%@ include file="../layout/footer.jsp" %>

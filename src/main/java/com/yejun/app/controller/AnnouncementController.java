@@ -34,6 +34,7 @@ public class AnnouncementController {
 	@PostMapping("/insert")
 	public @ResponseBody ResponseDTO<?> insertAnnouncement(@Valid @RequestBody AnnouncementDTO announcementDTO, BindingResult bindingResult, HttpSession session) {
 		Announcement announcement = modelMapper.map(announcementDTO, Announcement.class);
+		System.out.println(announcement.toString());
 		announcement.setSubmit(false);
 		announcement.setResult(AnnouncementResult.서류탈락);
 		User principal = (User) session.getAttribute("principal");

@@ -43,14 +43,17 @@ public class ViewController {
 		return "/system/login";
 	}
 	
+	@GetMapping("/view/insertAnnouncement")
+	public String insertAnnouncementView(HttpSession session) {
+		if (session.getAttribute("principal") == null) { // 급한대로 그냥 권한 설정
+			return "/";
+		}
+		return "/announcement/insertAnnouncement";
+	}
+	
 	@GetMapping("/view/updateUser")
 	public String updateUserView() {
 		return "/system/updateUser";
-	}
-	
-	@GetMapping("/view/insertAnnouncement")
-	public String insertAnnouncementView() {
-		return "/announcement/insertAnnouncement";
 	}
 	
 	@GetMapping("/view/insertQuestion/{id}")

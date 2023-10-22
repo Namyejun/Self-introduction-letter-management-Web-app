@@ -1,5 +1,6 @@
 package com.yejun.app.domain;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -52,10 +53,10 @@ public class Announcement {
 	private String job;
 	
 	@Column(nullable = true)
-	private Timestamp startDate;
+	private Date startDate;
 	
 	@Column(nullable = false)
-	private Timestamp endDate;
+	private Date endDate;
 	
 	@Column(nullable = false, columnDefinition = "bool default false")
 	private Boolean submit;
