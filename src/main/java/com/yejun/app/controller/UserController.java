@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,15 +36,17 @@ public class UserController {
 //	private PasswordEncoder passwordEncoder;
 	
 	@PostMapping("/user/login")
-	public String login(User user, HttpSession session) { // Form 태그로 보내면 @RequestBody를 안써도 된대
+	public String login(User user, HttpSession session, Model model) { // Form 태그로 보내면 @RequestBody를 안써도 된대
 		User findUser = userService.getUser(user.getUserId());
 		if (findUser.getUserId() == null) {
-			return "login";
+			model.addAttribute("errorMessage", "사용자를 찾을 수 없습니다.");
+			return "/system/login";
 		} else {
 			if (user.getPw().equals(findUser.getPw())) {
 				session.setAttribute("principal", findUser);
 				return "redirect:/";
 			} else {
+				model.addAttribute("errorMessage", "비밀번호가 틀립니다.");
 				return "/system/login";
 			}
 		}

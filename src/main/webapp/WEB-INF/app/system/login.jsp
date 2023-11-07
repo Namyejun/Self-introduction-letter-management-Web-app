@@ -13,7 +13,12 @@
 					<label for="pw">비밀번호:</label>
 					<input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw">
 				</div>
-				<button id="btn-login" class="btn btn-secondary">로그인</button>
+				<div class="mb-3">
+					<button id="btn-login" class="btn btn-secondary">로그인</button>					
+				</div>
+				<div class="alert alert-warning">
+			  		<strong>Waning!</strong> ${errorMessage}
+				</div>
 			</form>
 		</div>
 <%@ include file="../layout/footer.jsp" %>

@@ -52,7 +52,7 @@ public class ViewController {
 	}
 	
 	@GetMapping("/view/updateUser")
-	public String updateUserView() {
+	public String updateUserView(HttpSession session) {
 		return "/system/updateUser";
 	}
 	
