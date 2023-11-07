@@ -53,7 +53,7 @@ public class ViewController {
 	
 	@GetMapping("/view/updateUser")
 	public String updateUserView(HttpSession session) {
-		return "/system/updateUser";
+		return "/user/updateUser";
 	}
 	
 	@GetMapping("/view/insertQuestion/{id}")
