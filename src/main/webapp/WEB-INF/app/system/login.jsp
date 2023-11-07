@@ -16,9 +16,11 @@
 				<div class="mb-3">
 					<button id="btn-login" class="btn btn-secondary">로그인</button>					
 				</div>
-				<div class="alert alert-warning">
-			  		<strong>Waning!</strong> ${errorMessage}
-				</div>
+				<c:if test="${!empty errorMessage}">
+					<div class="alert alert-warning">
+			  			<strong>Waning!</strong> ${errorMessage}
+					</div>
+				</c:if>
 			</form>
 		</div>
 <%@ include file="../layout/footer.jsp" %>
